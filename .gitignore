@@ -1,0 +1,75 @@
+# ===== 安全红线：绝不提交任何私密策略、运维资料或密钥 =====
+# 私有规划与生产资料必须保存在仓库外，并通过公开发布门禁复核。
+.env*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.kdbx
+id_rsa
+id_ed25519
+secrets/
+.secrets/
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+/lib/
+/lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# ===== Node / Next.js =====
+node_modules/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+*.tsbuildinfo
+next-env.d.ts
+
+# ===== 数据 / 缓存 =====
+*.db
+*.sqlite
+*.sqlite3
+*.db-*
+*.sqlite-*
+*.sqlite3-*
+data/cache/
+.cache/
+
+# ===== 系统 / IDE =====
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

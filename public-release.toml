@@ -1,0 +1,55 @@
+schema_version = 1
+
+[export]
+# This is an allowlist, not a convenience copy list. A tracked file that does
+# not match one of these entries blocks the release until it is reviewed.
+include = [
+  ".dockerignore",
+  ".env.example",
+  ".gitattributes",
+  ".github/dependabot.yml",
+  ".github/ISSUE_TEMPLATE/bug_report.yml",
+  ".github/ISSUE_TEMPLATE/config.yml",
+  ".github/ISSUE_TEMPLATE/feature_request.yml",
+  ".github/pull_request_template.md",
+  ".github/workflows/ci.yml",
+  ".github/workflows/security.yml",
+  ".gitignore",
+  ".python-version",
+  "CHANGELOG.md",
+  "CODE_OF_CONDUCT.md",
+  "LICENSE",
+  "PUBLIC_RELEASE_MANIFEST.json",
+  "README.md",
+  "SECURITY.md",
+  "THIRD_PARTY_NOTICES.md",
+  "apps/",
+  "docker-compose.yml",
+  "docs/",
+  "examples/",
+  "package.json",
+  "packages/",
+  "pnpm-lock.yaml",
+  "pnpm-workspace.yaml",
+  "public-release.toml",
+  "pyproject.toml",
+  "requirements-dev.txt",
+  "scripts/README.md",
+  "scripts/nas-build.sh",
+  "scripts/nas-deploy.sh",
+  "scripts/nas-translation.sh",
+  "scripts/public_release.py",
+  "scripts/tests/nas-build-ambiguous-tag-rollback.sh",
+  "scripts/tests/nas-deploy-contract-rollback.sh",
+  "scripts/tests/nas-deploy-final-writer-probe.sh",
+  "scripts/tests/nas-deploy-provenance.sh",
+  "scripts/tests/nas-deploy-version-receipt.sh",
+]
+inventory_sha256 = "f4febb600bc7f2da5711211e9c8f9e8c7113163f7fb05e24b6581e4c9726e895"
+
+[audit.binary_sha256]
+# Binary assets are denied by default because UTF-16 or binary wrapping can
+# bypass text-pattern scanners. Every permitted binary is pinned by path/hash.
+"docs/assets/app-preview.png" = [
+  "886c38f1d2af1b46ba452bdcfb15c6a20b356acdac5231f6c88d4820e210f837",
+]

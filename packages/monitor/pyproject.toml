@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantsieve-monitor"
+version = "0.1.0"
+description = "Delayed public-signal and SEC filing monitor for QuantSieve"
+authors = [{ name = "RRXXZZYY" }]
+keywords = ["quantitative-finance", "research", "backtesting", "market-data"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business :: Financial :: Investment",
+]
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+  "quantsieve-providers>=0.1.0",
+  "feedparser>=6.0",
+  "httpx>=0.28",
+  "pydantic>=2.10",
+]
+
+[project.urls]
+Homepage = "https://github.com/RRXXZZYY/QuantSieve"
+Documentation = "https://github.com/RRXXZZYY/QuantSieve#readme"
+Repository = "https://github.com/RRXXZZYY/QuantSieve.git"
+Issues = "https://github.com/RRXXZZYY/QuantSieve/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "moutai-backtest",
+    "title": "茅台双均线回测",
+    "prompt": "用双均线策略回测贵州茅台，并解释主要风险。",
+    "answer": "这是预录演示。行情与指标均来自演示录制时保存的数据快照；启动本地数据源后可重新运行并获得最新结果。",
+    "citations": [
+      {
+        "source": "QuantSieve recorded demo snapshot",
+        "url": null,
+        "as_of": "2026-07-25T00:00:00+00:00",
+        "note": "Recorded UI demo; not current market data"
+      }
+    ]
+  },
+  {
+    "id": "catl-research",
+    "title": "宁德时代财报研究",
+    "prompt": "分析宁德时代最新财报，所有数字注明来源。",
+    "answer": "这是预录演示，展示“工具取数 → 来源标注 → 谨慎解读”的完整流程。连接 AKShare 后可查询当前公开数据。",
+    "citations": [
+      {
+        "source": "QuantSieve recorded demo snapshot",
+        "url": null,
+        "as_of": "2026-07-25T00:00:00+00:00",
+        "note": "Recorded UI demo; not current market data"
+      }
+    ]
+  },
+  {
+    "id": "berkshire-13f",
+    "title": "Berkshire 13F",
+    "prompt": "查看 Berkshire 最近一期公开 13F 持仓。",
+    "answer": "这是预录演示。实际查询由 SEC EDGAR 官方 submissions 与 filing archive 接口提供，并显示申报日期与原始文件链接。",
+    "citations": [
+      {
+        "source": "SEC EDGAR",
+        "url": "https://www.sec.gov/edgar/search/",
+        "as_of": "2026-07-25T00:00:00+00:00",
+        "note": "Recorded workflow demo; use refresh for current filing"
+      }
+    ]
+  }
+]

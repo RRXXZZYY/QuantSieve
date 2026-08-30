@@ -1,0 +1,48 @@
+name: Bug report
+description: Report a reproducible defect without including secrets or private market data.
+title: "[Bug] "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve QuantSieve. For vulnerabilities, use SECURITY.md instead of a public issue.
+  - type: checkboxes
+    attributes:
+      label: Safety check
+      options:
+        - label: This report contains no credentials, account details, positions, private data, or internal addresses.
+          required: true
+        - label: I searched existing issues for the same problem.
+          required: true
+  - type: input
+    attributes:
+      label: Version or commit
+      placeholder: v0.1.0 or a commit SHA
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Installation path
+      options:
+        - Docker Compose
+        - Local Python and pnpm
+        - MCP package from repository
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction
+      description: Provide the smallest deterministic steps and sanitized inputs.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Sanitized logs or screenshots
+      description: Remove tokens, paths, accounts, positions, and non-public data before posting.
