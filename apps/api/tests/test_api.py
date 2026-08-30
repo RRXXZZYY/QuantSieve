@@ -2341,6 +2341,39 @@ def test_strategy_discovery_shortlists_before_final_holdout(tmp_path) -> None:
         )
 
 
+def test_strategy_discovery_does_not_expose_optimizer_exceptions(
+    tmp_path, monkeypatch
+) -> None:
+    private_detail = "private-provider-detail"
+
+    def fail_optimization(*args, **kwargs):
+        del args, kwargs
+        raise RuntimeError(private_detail)
+
+    monkeypatch.setattr(market_router, "optimize_strategy", fail_optimization)
+    response = client(tmp_path).post(
+        "/api/v1/backtests/discover",
+        json={
+            "symbol": "DISCOVER",
+            "provider": "yfinance",
+            "objective": "balanced",
+            "shortlist_size": 1,
+            "minimum_trades": 0,
+            "minimum_trades_per_year": 1,
+            "minimum_exposure": 0,
+            "maximum_cash_streak_ratio": 1,
+            "minimum_profitable_fold_ratio": 0,
+        },
+    )
+
+    assert response.status_code == 200
+    assert private_detail not in response.text
+    assert response.json()["failures"]
+    assert {
+        failure["reason"] for failure in response.json()["failures"]
+    } == {"Strategy optimization failed for this candidate."}
+
+
 def test_trade_quality_uses_closed_position_cycles_not_capital_lots() -> None:
     result = SimpleNamespace(
         trades=[

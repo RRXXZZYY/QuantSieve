@@ -540,6 +540,11 @@ def test_history_audit_allows_example_and_github_noreply_identities(tmp_path: Pa
     commit_all(tmp_path, "public source")
     git(tmp_path, "tag", "-a", "v1.0.0", "-m", "public release")
 
+    git(tmp_path, "config", "user.name", "GitHub")
+    git(tmp_path, "config", "user.email", "noreply@github.com")
+    (tmp_path / "README.md").write_text("version 3\n", encoding="utf-8")
+    commit_all(tmp_path, "GitHub merge commit")
+
     result = run_command("audit", "--root", str(tmp_path), "--history")
 
     assert result.returncode == 0, result.stderr
