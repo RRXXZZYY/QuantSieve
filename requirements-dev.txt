@@ -3,7 +3,7 @@
 -e ./packages/engine
 -e ./packages/mcp
 -e ./apps/api
-coverage[toml]>=7.6
+coverage[toml]>=7.15.4
 build>=1.2
 httpx>=0.28
 mypy>=1.14
