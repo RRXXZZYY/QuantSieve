@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="title desc">
+  <title id="title">QuantSieve research terminal preview</title>
+  <desc id="desc">Dark research terminal with grounded research composer, workflow steps, and demo cards.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#071015"/>
+      <stop offset="1" stop-color="#0b171d"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#55d6be" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#55d6be" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="820" fill="url(#bg)"/>
+  <path d="M0 48H1440M0 96H1440M0 144H1440M0 192H1440M0 240H1440M0 288H1440M0 336H1440M0 384H1440M0 432H1440M0 480H1440M0 528H1440M0 576H1440M0 624H1440M0 672H1440M0 720H1440M0 768H1440" stroke="#fff" stroke-opacity=".018"/>
+  <path d="M48 0V820M96 0V820M144 0V820M192 0V820M240 0V820M288 0V820M336 0V820M384 0V820M432 0V820M480 0V820M528 0V820M576 0V820M624 0V820M672 0V820M720 0V820M768 0V820M816 0V820M864 0V820M912 0V820M960 0V820M1008 0V820M1056 0V820M1104 0V820M1152 0V820M1200 0V820M1248 0V820M1296 0V820M1344 0V820M1392 0V820" stroke="#fff" stroke-opacity=".018"/>
+  <rect width="232" height="820" fill="#071015" stroke="#21343d"/>
+  <rect x="30" y="31" width="34" height="34" fill="#55d6be"/>
+  <path d="M39 55l7-7 4 4 7-12m-6 0h6v6" fill="none" stroke="#06211c" stroke-width="2"/>
+  <text x="77" y="48" fill="#e7eff1" font-family="Arial" font-size="17" font-weight="700">QuantSieve</text>
+  <text x="77" y="62" fill="#51656e" font-family="Arial" font-size="8" letter-spacing="2">RESEARCH TERMINAL</text>
+  <rect x="18" y="105" width="196" height="44" fill="url(#glow)"/>
+  <rect x="18" y="105" width="2" height="44" fill="#55d6be"/>
+  <text x="50" y="132" fill="#80edd6" font-family="Arial" font-size="12">投研对话</text>
+  <text x="50" y="179" fill="#81949c" font-family="Arial" font-size="12">回测工作台</text>
+  <text x="50" y="226" fill="#81949c" font-family="Arial" font-size="12">市场脉搏</text>
+  <text x="50" y="273" fill="#81949c" font-family="Arial" font-size="12">策略模板</text>
+  <line x1="278" y1="94" x2="1394" y2="94" stroke="#21343d"/>
+  <text x="279" y="49" fill="#55d6be" font-family="Arial" font-size="9" font-weight="700" letter-spacing="2">RESEARCH DESK</text>
+  <text x="279" y="78" fill="#e7eff1" font-family="Georgia" font-size="26">先证据，后观点。</text>
+  <text x="279" y="166" fill="#55d6be" font-family="Arial" font-size="9" font-weight="700" letter-spacing="2">GROUNDED RESEARCH</text>
+  <text x="279" y="229" fill="#e7eff1" font-family="Georgia" font-size="58">把模糊问题，</text>
+  <text x="279" y="296" fill="#e7eff1" font-family="Georgia" font-size="58">变成<tspan fill="#55d6be">可核查的答案。</tspan></text>
+  <text x="279" y="339" fill="#81949c" font-family="Arial" font-size="13">先调用真实数据与回测工具，再让模型解释。每个关键结论都带来源。</text>
+  <line x1="1140" y1="173" x2="1140" y2="326" stroke="#21343d"/>
+  <text x="1165" y="195" fill="#55d6be" font-family="monospace" font-size="9">01</text>
+  <text x="1200" y="195" fill="#81949c" font-family="Arial" font-size="12">工具取数</text>
+  <text x="1165" y="240" fill="#55d6be" font-family="monospace" font-size="9">02</text>
+  <text x="1200" y="240" fill="#81949c" font-family="Arial" font-size="12">量化计算</text>
+  <text x="1165" y="285" fill="#55d6be" font-family="monospace" font-size="9">03</text>
+  <text x="1200" y="285" fill="#81949c" font-family="Arial" font-size="12">谨慎解读</text>
+  <rect x="278" y="391" width="1116" height="154" fill="#0e1c23" stroke="#2a414b"/>
+  <text x="300" y="422" fill="#55d6be" font-family="Arial" font-size="9" font-weight="700">向 QUANTSIEVE 提问</text>
+  <text x="1359" y="422" fill="#51656e" font-family="Arial" font-size="9" text-anchor="end">真实查询 · BYOK</text>
+  <text x="300" y="471" fill="#aab9be" font-family="Georgia" font-size="19">分析宁德时代最新财报，所有数字注明来源…</text>
+  <text x="300" y="518" fill="#51656e" font-family="Arial" font-size="9">模型不会被允许凭空补充数字</text>
+  <rect x="1247" y="492" width="124" height="34" fill="#55d6be"/>
+  <text x="1309" y="514" fill="#06211c" font-family="Arial" font-size="10" font-weight="700" text-anchor="middle">开始研究 ↗</text>
+  <text x="278" y="605" fill="#55d6be" font-family="Arial" font-size="9" font-weight="700" letter-spacing="2">ZERO-CONFIG DEMOS</text>
+  <text x="278" y="636" fill="#e7eff1" font-family="Georgia" font-size="22">先看看完整工作流</text>
+  <g fill="#0c171d" stroke="#21343d">
+    <rect x="278" y="663" width="354" height="123"/>
+    <rect x="647" y="663" width="354" height="123"/>
+    <rect x="1016" y="663" width="378" height="123"/>
+  </g>
+  <text x="299" y="688" fill="#51656e" font-family="monospace" font-size="9">01</text>
+  <text x="299" y="729" fill="#e7eff1" font-family="Georgia" font-size="17">茅台双均线回测</text>
+  <text x="668" y="688" fill="#51656e" font-family="monospace" font-size="9">02</text>
+  <text x="668" y="729" fill="#e7eff1" font-family="Georgia" font-size="17">宁德时代财报研究</text>
+  <text x="1037" y="688" fill="#51656e" font-family="monospace" font-size="9">03</text>
+  <text x="1037" y="729" fill="#e7eff1" font-family="Georgia" font-size="17">Berkshire 13F</text>
+</svg>

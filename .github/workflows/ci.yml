@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements-dev.txt
+      - run: ruff check .
+      - run: mypy
+      - run: pytest
+      - run: python -m build packages/providers
+      - run: python -m build packages/monitor
+      - run: python -m build packages/engine
+      - run: python -m build packages/mcp
+      - run: python -m build apps/api
+      - name: Validate Python package metadata
+        run: >-
+          python -m twine check
+          packages/providers/dist/*
+          packages/monitor/dist/*
+          packages/engine/dist/*
+          packages/mcp/dist/*
+          apps/api/dist/*
+      - name: Install built wheels in a clean environment
+        run: |
+          python -m venv .package-smoke
+          . .package-smoke/bin/activate
+          python -m pip install \
+            packages/providers/dist/*.whl \
+            packages/monitor/dist/*.whl \
+            packages/engine/dist/*.whl \
+            packages/mcp/dist/*.whl \
+            apps/api/dist/*.whl
+          python -c "import quantsieve_api, quantsieve_engine, quantsieve_mcp, quantsieve_monitor, quantsieve_providers"
+
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093 # v6.0.8
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: "24"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+
+  compose-smoke:
+    needs: [python, web]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - name: Build and start the documented Compose path
+        run: docker compose up --build --detach
+      - name: Verify API and Web health
+        shell: bash
+        run: |
+          for attempt in {1..60}; do
+            if curl --fail --silent http://127.0.0.1:8000/health >/dev/null \
+              && curl --fail --silent http://127.0.0.1:3000 >/dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          docker compose ps
+          exit 1
+      - name: Stop Compose services
+        if: always()
+        run: docker compose down --volumes --remove-orphans

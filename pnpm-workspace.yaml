@@ -1,0 +1,18 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+overrides:
+  "brace-expansion@1.1.16": "1.1.18"
+  "brace-expansion@5.0.8": "5.0.9"
+  "js-yaml@4.3.0": "4.3.1"
+  "nanoid@3.3.16": "3.3.18"
+  postcss: "8.5.23"
+  "sharp@0.34.5": "0.35.0"
+
+onlyBuiltDependencies:
+  - "sharp"
+  - "unrs-resolver"
+allowBuilds:
+  sharp: true
+  unrs-resolver: true

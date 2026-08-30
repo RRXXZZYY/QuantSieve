@@ -1,0 +1,28 @@
+name: Feature request
+description: Propose a scoped, evidence-backed improvement.
+title: "[Feature] "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: checkboxes
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked the roadmap and existing issues.
+          required: true
+        - label: This request does not require real-order execution or weaken documented safety boundaries.
+          required: true
+  - type: textarea
+    attributes:
+      label: Research problem
+      description: What user decision or reproducibility gap should this solve?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed behavior
+      description: Include data sources, time semantics, failure behavior, and a simple acceptance test.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Alternatives and limitations

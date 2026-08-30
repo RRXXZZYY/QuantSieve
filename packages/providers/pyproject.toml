@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantsieve-providers"
+version = "0.1.0"
+description = "Traceable, pluggable market-data providers for QuantSieve"
+authors = [{ name = "RRXXZZYY" }]
+keywords = ["quantitative-finance", "research", "backtesting", "market-data"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business :: Financial :: Investment",
+]
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+  "httpx>=0.28",
+  "pandas>=2.2",
+  "pydantic>=2.10",
+  "websockets>=15",
+]
+
+[project.optional-dependencies]
+china = ["akshare>=1.18"]
+us = ["yfinance>=0.2.50"]
+all = ["akshare>=1.18", "yfinance>=0.2.50"]
+
+[project.urls]
+Homepage = "https://github.com/RRXXZZYY/QuantSieve"
+Documentation = "https://github.com/RRXXZZYY/QuantSieve#readme"
+Repository = "https://github.com/RRXXZZYY/QuantSieve.git"
+Issues = "https://github.com/RRXXZZYY/QuantSieve/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]

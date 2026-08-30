@@ -1,0 +1,13 @@
+{
+  "name": "quantsieve",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "dev": "pnpm --filter @quantsieve/web dev",
+    "build": "pnpm --filter @quantsieve/web build",
+    "lint": "pnpm --filter @quantsieve/web lint",
+    "typecheck": "pnpm --filter @quantsieve/web typecheck",
+    "test": "pnpm --filter @quantsieve/web test"
+  }
+}

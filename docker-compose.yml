@@ -1,0 +1,44 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      QUANTSIEVE_BUILD_VERSION: ${QUANTSIEVE_BUILD_VERSION:-0.1.0}
+      QUANTSIEVE_SOURCE_REVISION: ${QUANTSIEVE_SOURCE_REVISION:-}
+      QUANTSIEVE_DEPENDENCY_LOCK_SHA256: ${QUANTSIEVE_DEPENDENCY_LOCK_SHA256:-}
+      QUANTSIEVE_DATABASE_PATH: /app/data/quantsieve.db
+      QUANTSIEVE_CACHE_PATH: /app/data/cache.db
+      QUANTSIEVE_FACTOR_RESEARCH_MAX_CONCURRENCY: ${QUANTSIEVE_FACTOR_RESEARCH_MAX_CONCURRENCY:-1}
+      QUANTSIEVE_FACTOR_RESEARCH_PROVIDER_MAX_CONCURRENCY: ${QUANTSIEVE_FACTOR_RESEARCH_PROVIDER_MAX_CONCURRENCY:-8}
+      QUANTSIEVE_FACTOR_RESEARCH_DEADLINE_SECONDS: ${QUANTSIEVE_FACTOR_RESEARCH_DEADLINE_SECONDS:-45}
+      QUANTSIEVE_SEC_USER_AGENT: ${QUANTSIEVE_SEC_USER_AGENT:-QuantSieve local-user contact@example.com}
+      QUANTSIEVE_CORS_ORIGINS: http://localhost:3000
+      QUANTSIEVE_TRANSLATION_ENABLED: ${QUANTSIEVE_TRANSLATION_ENABLED:-false}
+      QUANTSIEVE_TRANSLATION_BASE_URL: ${QUANTSIEVE_TRANSLATION_BASE_URL:-http://translate:5000}
+      QUANTSIEVE_TRANSLATION_TIMEOUT_SECONDS: ${QUANTSIEVE_TRANSLATION_TIMEOUT_SECONDS:-45}
+      QUANTSIEVE_TRANSLATION_BATCH_LIMIT: ${QUANTSIEVE_TRANSLATION_BATCH_LIMIT:-18}
+      QUANTSIEVE_TRANSLATION_CACHE_TTL_DAYS: ${QUANTSIEVE_TRANSLATION_CACHE_TTL_DAYS:-90}
+      QUANTSIEVE_TRANSLATION_CONTRACT_VERSION: ${QUANTSIEVE_TRANSLATION_CONTRACT_VERSION:-argos-en-zh-v1}
+    ports:
+      - "127.0.0.1:${QUANTSIEVE_API_PORT:-8000}:8000"
+    volumes:
+      - quantsieve-data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${QUANTSIEVE_WEB_PORT:-3000}:3000"
+
+volumes:
+  quantsieve-data:

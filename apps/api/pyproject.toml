@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantsieve-api"
+version = "0.1.0"
+description = "FastAPI application for QuantSieve"
+authors = [{ name = "RRXXZZYY" }]
+keywords = ["quantitative-finance", "research", "backtesting", "market-data"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business :: Financial :: Investment",
+]
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+  "quantsieve-engine>=0.1.0",
+  "quantsieve-monitor>=0.1.0",
+  "quantsieve-providers>=0.1.0",
+  "fastapi>=0.140",
+  "httpx>=0.28",
+  "pydantic-settings>=2.7",
+  "sse-starlette>=3.0",
+  "uvicorn[standard]>=0.34",
+]
+
+[project.scripts]
+quantsieve-api = "quantsieve_api.main:run"
+
+[project.urls]
+Homepage = "https://github.com/RRXXZZYY/QuantSieve"
+Documentation = "https://github.com/RRXXZZYY/QuantSieve#readme"
+Repository = "https://github.com/RRXXZZYY/QuantSieve.git"
+Issues = "https://github.com/RRXXZZYY/QuantSieve/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+quantsieve_api = ["data/*.json"]
