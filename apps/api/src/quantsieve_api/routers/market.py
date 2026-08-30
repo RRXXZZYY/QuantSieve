@@ -2464,12 +2464,12 @@ async def discover_backtests(
                 top_n=3,
                 validation_scope="development_inner",
             )
-        except (RuntimeError, ValueError, KeyError) as exc:
+        except (RuntimeError, ValueError, KeyError):
             failures.append(
                 {
                     "strategy_id": strategy_id,
                     "strategy_name": definition.name,
-                    "reason": str(exc),
+                    "reason": "Strategy optimization failed for this candidate.",
                 }
             )
             continue
