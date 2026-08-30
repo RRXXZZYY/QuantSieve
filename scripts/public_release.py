@@ -424,6 +424,12 @@ def _is_allowed_email_domain(domain: str) -> bool:
     }
 
 
+def _is_allowed_email(local_part: str, domain: str) -> bool:
+    return _is_allowed_email_domain(domain) or (
+        local_part.lower() == "noreply" and domain.lower() == "github.com"
+    )
+
+
 def text_findings(text: str, location: str) -> list[Finding]:
     findings: list[Finding] = []
 
@@ -505,7 +511,7 @@ def text_findings(text: str, location: str) -> list[Finding]:
                 )
             )
     for match in EMAIL.finditer(text):
-        if not _is_allowed_email_domain(match.group(2)):
+        if not _is_allowed_email(match.group(1), match.group(2)):
             findings.append(
                 Finding(
                     "PERSONAL_EMAIL",
