@@ -8,6 +8,6 @@ build>=1.2
 httpx>=0.28
 mypy>=1.14
 pytest>=8.3
-pytest-asyncio>=0.25
+pytest-asyncio>=1.4.0
 ruff>=0.9
 twine>=6.0
