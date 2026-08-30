@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: QuantSieve
+message: "If QuantSieve supports your research or teaching, please cite this software release."
+type: software
+authors:
+  - family-names: Li
+    given-names: ZhongYu
+repository-code: "https://github.com/RRXXZZYY/QuantSieve"
+url: "https://github.com/RRXXZZYY/QuantSieve"
+license: MIT
+version: 0.1.1
+date-released: 2026-08-31
+keywords:
+  - quantitative-finance
+  - backtesting
+  - factor-research
+  - reproducible-research
+  - paper-trading
