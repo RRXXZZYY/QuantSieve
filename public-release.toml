@@ -16,6 +16,7 @@ include = [
   ".github/workflows/security.yml",
   ".gitignore",
   ".python-version",
+  "CITATION.cff",
   "CHANGELOG.md",
   "CODE_OF_CONDUCT.md",
   "LICENSE",
@@ -45,11 +46,14 @@ include = [
   "scripts/tests/nas-deploy-provenance.sh",
   "scripts/tests/nas-deploy-version-receipt.sh",
 ]
-inventory_sha256 = "f4febb600bc7f2da5711211e9c8f9e8c7113163f7fb05e24b6581e4c9726e895"
+inventory_sha256 = "0465d8ab8f0249aef091b97ee5f109f8124f11b6c837de731dd73141c5c10c2a"
 
 [audit.binary_sha256]
 # Binary assets are denied by default because UTF-16 or binary wrapping can
 # bypass text-pattern scanners. Every permitted binary is pinned by path/hash.
 "docs/assets/app-preview.png" = [
   "886c38f1d2af1b46ba452bdcfb15c6a20b356acdac5231f6c88d4820e210f837",
+]
+"docs/assets/social-preview.png" = [
+  "0073dbdc6c240da43e8670774b9465904ca61751067f09b47c1dca57f88867ac",
 ]

@@ -2,6 +2,19 @@
 
 All notable changes to QuantSieve are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses semantic versioning while it remains pre-1.0.
 
+## [0.1.1] - 2026-08-31
+
+### Changed
+
+- Made English the default README and moved the complete Simplified Chinese guide to `docs/README_ZH.md`.
+- Reworked the project overview around the evidence chain, honest failure states, quick start, and contribution entry points.
+
+### Added
+
+- Added a repository social-preview image built from the recorded demo surface and an abstract evidence-sieve visual.
+- Added verified CI, security-gate, release, license, and runtime badges to the default README.
+- Added `CITATION.cff` with the repository's release metadata.
+
 ## [0.1.0] - 2026-08-30
 
 ### Added
